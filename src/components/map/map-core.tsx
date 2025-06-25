@@ -1,12 +1,21 @@
 "use client";
 
-import { MapContainer, TileLayer, GeoJSON, useMapEvents } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
+import "leaflet/dist/leaflet.css";
+import {
+    MapContainer,
+    TileLayer,
+    GeoJSON,
+    useMap as useLeafletMap,
+    useMapEvents,
+} from "react-leaflet";
+
+import { useMap } from "@/hooks";
 
 const GEOJSON_URL = "/data/peru.geo.json";
 
-export default function Map() {
+export const MapCore = () => {
+    const { location } = useMap();
     const [geoJsonData, setGeoJsonData] = useState<GeoJSON.FeatureCollection | null>(
         null
     );
@@ -26,6 +35,17 @@ export default function Map() {
         };
         fetchPeruMap();
     }, []);
+
+    function MapSearchHandler() {
+        const map = useLeafletMap();
+
+        useEffect(() => {
+            if (location) {
+                map.flyTo([location.lat, location.lng], 17);
+            }
+        }, [location, map]);
+        return null;
+    }
 
     function MapClickHandler() {
         useMapEvents({
@@ -48,8 +68,9 @@ export default function Map() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; OpenStreetMap contributors"
             />
+            <MapSearchHandler />
             <MapClickHandler />
             {geoJsonData && <GeoJSON data={geoJsonData} />}
         </MapContainer>
     );
-}
+};
