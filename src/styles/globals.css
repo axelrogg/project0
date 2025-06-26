@@ -3,8 +3,17 @@
 
 /* Static Theme Variables */
 :root {
-    --background: oklch(0.1746 0.0465 315.53);
-    --foreground: oklch(0.9438 0.0288 315.33);
+    --background: oklch(0.155 0.044 329.59);
+    --foreground: oklch(1 0 0);
+
+    --primary: oklch(0.7845 0.046 326.01);
+    --primary-foreground: var(--background);
+
+    --secondary: oklch(0.4323 0.1642 6.27);
+    --secondary-foreground: var(--foreground);
+
+    --accent: oklch(0.7025 0.111 55.63);
+    --accent-foreground: var(--background);
 
     --card: oklch(0.2045 0.0623 323.25);
     --card-light: oklch(0.3114 0.0709 317.28);
@@ -14,17 +23,8 @@
     --popover: var(--background);
     --popover-foreground: var(--foreground);
 
-    --primary: oklch(0.7536 0.145 318.08);
-    --primary-foreground: var(--background);
-
-    --secondary: oklch(0.4352 0.1646 343.25);
-    --secondary-foreground: var(--foreground);
-
     --muted: oklch(0.5504 0.0501 314.57);
     --muted-foreground: var(--foreground);
-
-    --accent: oklch(0.7189 0.1737 52.14);
-    --accent-foreground: var(--background);
 
     --destructive: oklch(45% 0.18 25);
     --destructive-foreground: var(--foreground);
