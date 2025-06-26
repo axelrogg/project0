@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { cookies } from "next/headers";
 
-import "@styles/globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import "@/styles/globals.css";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 
 const spaceGroteskFont = Space_Grotesk();
@@ -31,10 +31,7 @@ export default async function RootLayout({
             <body className={`${spaceGroteskFont.className} antialiased`}>
                 <SidebarProvider defaultOpen={defaultOpen}>
                     <AppSidebar />
-                    <main>
-                        <SidebarTrigger />
-                        {children}
-                    </main>
+                    <main>{children}</main>
                 </SidebarProvider>
             </body>
         </html>

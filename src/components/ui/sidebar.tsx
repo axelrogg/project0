@@ -266,21 +266,24 @@ function SidebarTrigger({
                 <Button
                     data-sidebar="trigger"
                     data-slot="sidebar-trigger"
-                    variant="ghost"
                     size="icon"
-                    className={cn("absolute top-2 z-40 size-7", className)}
+                    variant="ghost"
+                    className={cn(
+                        "bg-background text-foreground hover:text-foreground z-40 size-7 hover:bg-transparent",
+                        className
+                    )}
                     onClick={(event) => {
                         onClick?.(event);
                         toggleSidebar();
                     }}
                     {...props}
                 >
-                    <PanelLeftIcon className="text-foreground size-5" />
-                    <span className="sr-only">Toggle Sidebar</span>
+                    <PanelLeftIcon className="size-5" />
+                    <span className="sr-only">Abre o cierra el menú</span>
                 </Button>
             </TooltipTrigger>
             <TooltipContent side="right">
-                {open ? "Cerrar menú" : "Abrir menú"}
+                {open ? "Cierra el menú" : "Abre el menú"}
             </TooltipContent>
         </Tooltip>
     );

@@ -1,4 +1,5 @@
 "use client";
+
 import { Calendar, Home, Inbox } from "lucide-react";
 import {
     Sidebar,
@@ -6,7 +7,6 @@ import {
     SidebarFooter,
     SidebarGroup,
     SidebarGroupContent,
-    SidebarHeader,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
@@ -15,6 +15,7 @@ import {
 import { NavUser } from "./nav-user";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { NavHeader } from "./nav-header";
 
 // Menu items.
 const menuItems = [
@@ -29,8 +30,8 @@ const menuItems = [
         icon: Inbox,
     },
     {
-        title: "¿Qué es [nombre]?",
-        url: "/que-es-alza-el-dedo",
+        title: "¿Qué es Éckope?",
+        url: "/que-es-eckope",
         icon: Calendar,
     },
 ];
@@ -39,15 +40,7 @@ export function AppSidebar() {
     const { open } = useSidebar();
     return (
         <Sidebar side="left" collapsible="icon" variant="floating">
-            <SidebarHeader>
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" className="text-center">
-                            This should be the logo
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                </SidebarMenu>
-            </SidebarHeader>
+            <NavHeader />
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupContent>
