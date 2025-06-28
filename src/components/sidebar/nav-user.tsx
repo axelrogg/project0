@@ -28,7 +28,7 @@ interface NavUserProps {
 }
 
 export function NavUser({ user }: NavUserProps) {
-    const { isMobile } = useSidebar();
+    const { isMobile, open } = useSidebar();
 
     return (
         <SidebarMenu>
@@ -37,7 +37,7 @@ export function NavUser({ user }: NavUserProps) {
                     <DropdownMenuTrigger asChild>
                         <SidebarMenuButton
                             size="lg"
-                            className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                            className={`${open ? "" : "hover:text-foreground active:text-foreground hover:bg-transparent active:bg-transparent"}`}
                         >
                             <Avatar className="h-8 w-8 rounded-lg">
                                 <AvatarImage src={user.avatar} alt={user.name} />
