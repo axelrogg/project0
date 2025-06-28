@@ -9,7 +9,7 @@ import { AppSidebar } from "@/components/sidebar/app-sidebar";
 const spaceGroteskFont = Space_Grotesk();
 
 export const metadata: Metadata = {
-    title: "name",
+    title: "Éckope",
     description: "description",
 };
 
