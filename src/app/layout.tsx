@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 
-const spaceGroteskFont = Space_Grotesk();
+const spaceGroteskFont = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Éckope",
