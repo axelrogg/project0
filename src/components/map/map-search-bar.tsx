@@ -41,9 +41,7 @@ export const MapSearchBar = () => {
         },
     });
 
-    useEffect(() => {
-        form.setFocus("query");
-    }, []);
+    useEffect(() => form.setFocus("query"), [form]);
 
     async function onSubmit({ query }: z.infer<typeof formSchema>) {
         setSearchQuery(query);
